@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.gcu.yishu.pojos">
+    
+    <class name="Product" table="PRODUCT">
+    	<!-- 产品号 -->
+        <id name="pro_ID" column="PRO_ID" type="integer">
+            <generator class="native" />
+        </id>
+        <!-- 产品名称 -->
+        <property name="pro_Name" column="PRO_NAME" type="string" not-null="true"/>
+        <!-- 作者 -->
+        <property name="pro_Author" column="PRO_AUTHOR" type="string" not-null="true"/>
+        <!-- 出版社  -->
+        <property name="pro_Press" column="PRO_PRESS" type="string" not-null="true"/>
+        <!-- 发放时间 -->
+        <property name="pro_PublishTime" column="PRO_PUBLISHTIME" type="date" not-null="true"/>
+        
+    </class>
+
+</hibernate-mapping>

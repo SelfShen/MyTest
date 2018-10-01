@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.gcu.yishu.admin.pojos">
+
+	<class name="AdminUser" table="ADMINUSER">
+		<!-- 管理员序号 -->
+		<id name="uid" column="UID" type="integer">
+			<generator class="native"/>
+		</id>
+		<!-- 管理员姓名 -->
+		<property name="adminName" column="ADMINNAME" type="string" not-null="true"/>
+		<!-- 管理员密码 -->
+		<property name="adminPassword" column="ADMINPASSWORD" type="string" not-null="true"/>
+	</class>
+</hibernate-mapping>

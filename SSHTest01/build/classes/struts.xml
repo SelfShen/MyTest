@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<!-- 开发者模式value=true时，修改struts文件后不用每次重启tomcat -->
+	<constant name="struts.devMode" value="true" />
+
+	<package name="com.gcu.yishu.user.action" extends="struts-default">
+	
+		<global-allowed-methods>regex:.*</global-allowed-methods> 
+	
+		<action name="User_*" class="userAction" method="{1}">
+		
+			<!-- 配置fileUpload的拦截器 -->
+			<!-- 配置允许上传的文件大小 -->
+          	<interceptor-ref name="fileUpload"> <param name="maximumSize">4000000</param> </interceptor-ref>
+        	<interceptor-ref name="defaultStack"></interceptor-ref> 
+        
+			<result name="success">/content/success.jsp</result>
+			<result name="error">/content/error.jsp</result>
+			<result name="userupdatesuccess">/content/success.jsp</result>
+			<result name="toLogin">/content/login.jsp</result>
+			<result name="toRegister">/content/register.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="com.gcu.yishu.item.action" extends="struts-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<action name="Item_*" class="itemAction" method="{1}">
+			<result name="successfindItem"></result>
+		</action>
+	</package>
+	
+</struts>
